@@ -1,0 +1,107 @@
+/*text color and family*/
+*{
+  font-family: sans-serif;
+  text-align: center;
+  color: #769395;
+}
+
+html {
+  background-color: #0a252c;
+}
+/*Background for header*/
+header {
+  background-color: 	#133340;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 0;
+}
+
+/*Background and border for body*/
+main {
+  background-color: #03161c;
+  width: 50%;
+  margin: auto;
+  
+}
+
+/*Border for header and body*/
+header, main {
+  border-style: solid;
+  border-color: #163f51;
+  border-width: 2px;
+}
+
+/*Spacing in the title*/
+h1 {
+  padding: 0 10px 0 10px;
+}
+
+/*spacing on the answer letters*/
+h3 {
+  padding: 0 30px 0 0;
+}
+
+/*spacing for the correct word*/
+p {
+  padding: 0 10px 0 0;
+}
+
+/*Next question button*/
+button {
+  background-color: #133340;
+}
+
+input[type=submit] {
+  background-color: #081b21;
+  border-style: none;
+}
+
+input[type=image] {
+  width: 95%;
+}
+
+/*Start button settings*/
+#start {
+  margin: 10px;
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+  }
+
+/*title flex*/
+.title {
+  justify-content: space-between;
+}
+
+/*Pictures inside the body*/
+.items {
+  justify-content: center;
+}
+
+/*spacing for the body pictures*/
+.item {
+  padding: 10px 10px 10px 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/*Borders and background color for the items*/
+.border {
+  border-style: solid;
+  border-color:	#0a2732;
+  border-width: 2px;
+  background-color: #081b21;
+}
+
+/*margin for answer items*/
+.margin {
+  margin-bottom: 10px;
+  padding: 10px 50px 10px 10px;
+}
+
+/*margin to space out the question items and the answer items*/
+.big-margin {
+  margin-bottom: 80px;
+}
