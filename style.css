@@ -44,6 +44,7 @@ h3 {
 /*spacing for the correct word*/
 p {
   padding: 0 10px 0 0;
+  margin-bottom: 40px;
 }
 
 /*Next question button*/
@@ -56,8 +57,9 @@ input[type=submit] {
   border-style: none;
 }
 
-input[type=image] {
+img {
   width: 95%;
+  margin-bottom: 20px;
 }
 
 /*Start button settings*/

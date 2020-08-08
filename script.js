@@ -9,10 +9,10 @@ const STORE = [
       <img src="images/question-1/demon-edge.png" alt="Demon Edge">
     </div>`,
     answerItems: [
-      '<input type="image" id="A" src="images/question-1/silver-edge.png" alt="Silver Edge">', 
-      '<input type="image" id="B" src="images/question-1/mjollnir.png" alt="Mjollnir">', 
-      '<input type="image" id="C" src="images/question-1/iron-branch.png" alt="Iron Branch">', 
-      '<input type="image" id="D" src="images/question-1/divine-rapier.png" alt ="Divine Rapier">'
+      `<img src="images/question-1/silver-edge.png" alt="Silver Edge">`,
+      `<img src="images/question-1/mjollnir.png" alt="Mjollnir">`,
+      `<img src="images/question-1/iron-branch.png" alt="Iron Branch">`,
+      `<img src="images/question-1/divine-rapier.png" alt ="Divine Rapier">`
     ],
     correctAnswer: "D"
   },
@@ -23,10 +23,10 @@ const STORE = [
       <img src="images/question-2/kunkka.png" alt="Kunkka">
     </div>`,
     answerItems: [
-      '<input type="submit" id="A" value="Admiral">', 
-      '<input type="submit" id="B" value="Commander">', 
-      '<input type="submit" id="C" value="Captain">', 
-      '<input type="submit" id="D" value="Lieutenant">'
+      `<p>Admiral</p>`, 
+      `<p>Commander</p>`, 
+      `<p>Captain</p>`, 
+      '<p>Lieutenant</p>'
     ],
     correctAnswer: "A"
   },
@@ -37,10 +37,10 @@ const STORE = [
       <img src="images/question-3/phantom-assassin.png" alt="Phantom Assassin">
     </div>`,
     answerItems: [
-      '<input type="image" id="A" src="images/question-3/axe.png" alt="Culling Blade">', 
-      '<input type="image" id="B" src="images/question-3/bugs.png" alt="The Swarm">', 
-      '<input type="image" id="C" src="images/question-3/club.png" alt="Bash of the Deep">', 
-      '<input type="image" id="D" src="images/question-3/dagger.png" alt ="Stifling Dagger">'
+      '<img src="images/question-3/axe.png" alt="Culling Blade">', 
+      '<img src="images/question-3/bugs.png" alt="The Swarm">', 
+      '<img src="images/question-3/club.png" alt="Bash of the Deep">', 
+      '<img src="images/question-3/dagger.png" alt ="Stifling Dagger">'
     ],
     correctAnswer: "D"
   },
@@ -48,10 +48,10 @@ const STORE = [
     question: 'Which hero utters the phrase: "From the Ghastly Eyrie I can see to the ends of the world, and from this vantage point, I declare with utter certainty that this one is in the bag!"?',
     questionItems:``,
     answerItems: [
-      '<input type="image" id="A" src="images/question-4/timbersaw.png" alt="Timbersaw">', 
-      '<input type="image" id="B" src="images/question-4/storm-spirit.png" alt="Storm Spirit">', 
-      '<input type="image" id="C" src="images/question-4/skywrath-mage.png" alt="Skywrath Mage">', 
-      '<input type="image" id="D" src="images/question-4/invoker.png" alt ="Invoker">'
+      '<img src="images/question-4/timbersaw.png" alt="Timbersaw">', 
+      '<img src="images/question-4/storm-spirit.png" alt="Storm Spirit">', 
+      '<img src="images/question-4/skywrath-mage.png" alt="Skywrath Mage">', 
+      '<img src="images/question-4/invoker.png" alt ="Invoker">'
     ],
     correctAnswer: "C"
   },
@@ -59,10 +59,10 @@ const STORE = [
     question: 'What hero has like LITERALLY no agility?',
     questionItems:``,
     answerItems: [
-      '<input type="image" id="A" src="images/question-5/lycan.png" alt="Lycan">', 
-      '<input type="image" id="B" src="images/question-5/tiny.png" alt="Tiny">', 
-      '<input type="image" id="C" src="images/question-5/treant.png" alt="Treant Protector">', 
-      '<input type="image" id="D" src="images/question-5/underlord.png" alt ="Underlord">'
+      '<img src="images/question-5/lycan.png" alt="Lycan">', 
+      '<img src="images/question-5/tiny.png" alt="Tiny">', 
+      '<img src="images/question-5/treant.png" alt="Treant Protector">', 
+      '<img src="images/question-5/underlord.png" alt ="Underlord">'
     ],
     correctAnswer: "B"
   },
@@ -78,19 +78,7 @@ function startQuiz() {
   });
 }
 
-/*update the score when the user gets a question right*/
-function updateScore() {
-  let scoreHTML = $(`
-  <div>
-      <h1>QUEUE TIME TRIVIA</h1>
-    </div>
-    <div id="score">
-      <h1>POINTS: ${score}</h1>
-    </div>`)
-  $("header").html(scoreHTML);
-}
-
-/*Update the html with a new question*/
+/*Render the html with a new question*/
 function showQuestion() {
 
   const questionToHTML = $(`
@@ -104,27 +92,40 @@ function showQuestion() {
       </section>
 
       <!--Answers-->
-
+      <form class="question-pick" id="form1">
       <section class="group items">
         <div class="group margin item border">
           <h3>A</h3>
-          ${STORE[currentQuestion].answerItems[0]}
+          <label>
+            <input name="select" type="radio" id="A" value="A" tabindex="1">
+            ${STORE[currentQuestion].answerItems[0]}
+          </label>
         </div>
         <div class="group margin item border">
           <h3>B</h3>
-          ${STORE[currentQuestion].answerItems[1]}
+          <label>
+            <input name="select" type="radio" id="B" value="B" tabindex="2">
+            ${STORE[currentQuestion].answerItems[1]}
+          </label>
         </div>
       </section>
       <section class="group items">
         <div class="group margin item border">
           <h3>C</h3>
-          ${STORE[currentQuestion].answerItems[2]}
+          <label>
+            <input name="select" type="radio" id="C" value="C" tabindex="3">
+            ${STORE[currentQuestion].answerItems[2]}
+          </label>
         </div>
         <div class="group margin item border">
           <h3>D</h3>
-          ${STORE[currentQuestion].answerItems[3]}
+          <label>
+            <input name="select" type="radio" id="D" value="D" tabindex="4">
+            ${STORE[currentQuestion].answerItems[3]}
+          </label>
         </div>
       </section>
+      </form>
 
       <section>
         <div id="bottom">
@@ -137,28 +138,85 @@ function showQuestion() {
           <p style="text-align:right">Correct: ${score/100}</p>
         </div>
       </section>
+      
   `);
 
   $("main").html(questionToHTML);
-  optionSelect();
+  showSubmitButton();
 }
 
-function showNextQuestionButton() {
-  let buttonText = "NEXT QUESTION"
+/*After a user inputs an answer*/
+function nextQuestionPrompt(selection) {
+  $("input").attr('disabled', true);
+  $(`input#${selection}`).parent().parent().css("background-color","red");
+  $(`input#${selection}`).css("background-color","red");
+  $(`input#${STORE[currentQuestion].correctAnswer}`).parent().parent().css("background-color","green");
+  $(`input#${STORE[currentQuestion].correctAnswer}`).css("background-color","green");
+  if(selection === STORE[currentQuestion].correctAnswer) {
+    $("div#bottom").html(`<h3>Correct!<h3>`)
+    score+=100;
+  }
+  else {
+    $("div#bottom").html(`<h3>Incorrect!<h3>`)
+  }
+  updateScore();
+  currentQuestion++;
+  showNextButton();
+}
+
+/*update the score when the user gets a question right*/
+function updateScore() {
+  let scoreHTML = $(`
+  <div>
+      <h1>QUEUE TIME TRIVIA</h1>
+    </div>
+    <div id="score">
+      <h1>POINTS: ${score}</h1>
+    </div>`)
+  $("header").html(scoreHTML);
+}
+
+/*Show the submit button after question is shown*/
+function showSubmitButton() {
+  let buttonText = "SUBMIT";
+  $("div#correct").html(`<p style="text-align:right"><button type="submit" form="form1">${buttonText}</button> Correct: ${score/100}</p>`)
+
+  submitAnswer();
+}
+
+/*function to activate the submit button*/
+function submitAnswer() {
+  $('#form1').on('submit', function(e) {
+    e.preventDefault();
+    selection = $("input:checked").val();
+    if (!selection) {
+      alert("Try to select something");
+      return;
+    }
+    nextQuestionPrompt(selection);
+  });
+}
+
+/*Show the next button if there are questions left, otherwise show results button*/
+function showNextButton() {
+  let buttonText = "NEXT QUESTION";
   if(currentQuestion === STORE.length){
     buttonText = "RESULTS";
   }
-  $("div#correct").html(`<p style="text-align:right"><button type="submit" id="next-question">${buttonText}</button> Correct: ${score/100}</p>`)
+  $("div#correct").html(`<p style="text-align:right"><button type="submit" id="next-question" >${buttonText}</button> Correct: ${score/100}</p>`)
 
   nextQuestionSelect();
 }
 
-/*Restart Quiz Function*/
-function restartQuizButton() {
+/*Click the next question button*/
+function nextQuestionSelect() {
   $("button").on('click',function() {
-    currentQuestion = 0;
-    score = 0;
+    if(currentQuestion === STORE.length) {
+      showResults();
+    }
+    else {
     showQuestion();
+    }
   });
 }
 
@@ -178,72 +236,17 @@ function showResults() {
   restartQuizButton();
 }
 
-/*Click the next question button*/
-function nextQuestionSelect() {
+/*Restart Quiz Function*/
+function restartQuizButton() {
   $("button").on('click',function() {
-    if(currentQuestion === STORE.length) {
-      showResults();
-    }
-    else {
+    currentQuestion = 0;
+    score = 0;
     showQuestion();
-    }
-  });
-}
-
-/*After a user inputs an answer*/
-function nextQuestionPrompt(selection) {
-  $("input").attr('disabled', true);
-  $(`input#${selection}`).parent().css("background-color","red");
-  $(`input#${selection}`).css("background-color","red");
-  $(`input#${STORE[currentQuestion].correctAnswer}`).parent().css("background-color","green");
-  $(`input#${STORE[currentQuestion].correctAnswer}`).css("background-color","green");
-  if(selection === STORE[currentQuestion].correctAnswer) {
-    $("div#bottom").html(`<h3>Correct!<h3>`)
-  }
-  else {
-    $("div#bottom").html(`<h3>Incorrect!<h3>`)
-  }
-  updateScore();
-  currentQuestion++;
-  showNextQuestionButton();
-}
-
-/*function to make the option choices active*/
-function optionSelect() {
-  correctAnswer = STORE[currentQuestion].correctAnswer;
-
-  $('#A').on('click',function() {
-    if(correctAnswer === "A"){
-      score += 100;
-    }
-    nextQuestionPrompt("A");
-  });
-
-  $('#B').on('click',function() {
-    if(correctAnswer === "B"){
-      score += 100;
-    }
-    nextQuestionPrompt("B");
-  });
-
-  $('#C').on('click',function() {
-    if(correctAnswer === "C"){
-      score += 100;
-    }
-    nextQuestionPrompt("C");
-  });
-
-  $('#D').on('click',function() {
-    if(correctAnswer === "D"){
-      score += 100;
-    }
-    nextQuestionPrompt("D");
   });
 }
 
 function quizTime() {
   startQuiz();
-  optionSelect();
 }
 
 quizTime();
