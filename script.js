@@ -241,6 +241,7 @@ function restartQuizButton() {
   $("button").on('click',function() {
     currentQuestion = 0;
     score = 0;
+    updateScore();
     showQuestion();
   });
 }
